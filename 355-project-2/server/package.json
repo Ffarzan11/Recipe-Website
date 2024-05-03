@@ -1,0 +1,33 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "express server for recipe website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ffarzan11/CSCI355-project-2.git"
+  },
+  "author": "Farhikhta Farzan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ffarzan11/CSCI355-project-2/issues"
+  },
+  "homepage": "https://github.com/Ffarzan11/CSCI355-project-2#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.1.1",
+    "eslint": "^9.1.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "globals": "^15.1.0",
+    "prettier": "^3.2.5"
+  }
+}
