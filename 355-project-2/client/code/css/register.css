@@ -1,4 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-:root{
-    --night:rgba(52, 50, 50, 1);
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+:root {
+  --night: rgb(38, 36, 36);
+}
+
+body {
+  background-color: var(--night);
+}
+
+.nav1 a {
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.nav1 a:hover {
+  text-decoration: underline;
+}
+
+
+.form-container {
+  background-color: white !important;
+  padding: 1em;
+  text-align: center;
+  margin-top: 10%;
+  border-radius: 1em;
+  width: 50em !important;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-group {
+  padding: 0.5em;
+}
+
+#submit {
+  margin-top: 1em;
+  padding: 1em;
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn:focus {
+  background-color: rgb(72, 70, 70);
+}
+
+label {
+  padding-right: 1em;
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+label[for="email"] {
+  padding-right: 3em;
+}
+#firstname,
+#lastname,
+#username,
+#email,
+#password {
+  width: 25em;
+  height: 1.5em;
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  border-bottom: 2px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+input:focus {
+  outline: rgb(12, 12, 12) !important;
+}
+
+input::placeholder {
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  color: rgb(168, 166, 166);
+}
+
+.pass-btn {
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  border: none !important;
+  background-color: white !important;
+  color: rgb(108, 182, 232);
+}
+
+.pass-btn:hover {
+  border-bottom: 2px solid rgb(108, 182, 232) !important;
+}
+
+.popup {
+  position: relative;
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(208, 233, 250);
+  width: 25em;
+  height: 8em;
+  left: 25%;
+  padding-top: 1em;
+  border-radius: 10px;
+}
+.generator {
+  display: flex;
+  flex-direction: column;
+}
+#clipboard {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 5px;
+}
+
+#generate {
+  margin-top: 15px;
+  padding: 7px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+}
+
+.result-container {
+  position: relative;
+  background-color: aliceblue !important;
+  padding: 15px;
+  width: 15em;
+  margin-bottom: 10px;
+  align-self: center;
+}
+
+.result {
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
 }

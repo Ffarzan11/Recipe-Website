@@ -1,23 +1,130 @@
 <!--Farhikhta-->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/register.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
-        integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css"
-        integrity="sha512-i1b/nzkVo97VN5WbEtaPebBG8REvjWeqNclJ6AItj7msdVcaveKrlIIByDpvjk5nwHjXkIqGZscVxOrTb9tsMA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/register.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+      integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css"
+      integrity="sha512-i1b/nzkVo97VN5WbEtaPebBG8REvjWeqNclJ6AItj7msdVcaveKrlIIByDpvjk5nwHjXkIqGZscVxOrTb9tsMA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Register</title>
-</head>
-<body>
-    <h1>This is recipe!</h1>
+  </head>
+  <body>
+    <div class="container-flex">
+      <div class="nav">
+        <div class="nav1"><a href="/">Back to Home</a></div>
+      </div>
+      <div class="container-sm form-container">
+        <h2>Register</h2>
+        <div>
+          <form>
+            <div class="form-group">
+              <label for="firstname">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                class="form-input"
+                placeholder="Enter first name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                class="form-input"
+                placeholder="Enter last name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                class="form-input"
+                placeholder="Enter username"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email </label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                class="form-input"
+                placeholder="Enter email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                class="form-input"
+                placeholder="Enter password"
+              />
+
+              <div class="passGenerate">
+                <button class="pass-btn">Generate password</button>
+              </div>
+            </div>
+
+            <div class="popup" id="popup" style="display: none;">
+              <div class="generator">
+                <div class="result-container">
+                  <span class="result"></span>
+                  <button class="btn" id="clipboard">
+                    <i class="far fa-clipboard"></i>
+                  </button>
+                </div>
+
+                <div class="settings">
+                  <label>Password length</label>
+                  <input
+                    type="number"
+                    id="length"
+                    min="8"
+                    max="20"
+                    value="20"
+                  />
+                </div>
+              </div>
+
+              <button class="btn btn-primary" id="generate">
+                Generate Password
+              </button>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <script src="../JS/register.js"></script>
-</body>
-
+  </body>
 </html>
