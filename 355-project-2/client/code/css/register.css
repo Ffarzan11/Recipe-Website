@@ -132,6 +132,7 @@ input::placeholder {
   border-radius: 5px;
   border: none;
   background-color: white;
+  font-size: 12px;
 }
 
 .result-container {

@@ -40,7 +40,7 @@ function validatePassword(password) {
 
 //when submit button is clicked validate all the input fields
 submitBtn.addEventListener("click", (event) => {
-  event.preventDefault();
+  //event.preventDefault();
   if (!validateName(firstName.value)) {
     alert("Invalid first name");
   }
