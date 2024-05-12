@@ -1,4 +1,5 @@
 require('dotenv').config();
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 const express = require('express');
 const session = require('express-session');
 const userModel = require('./database');
@@ -6,6 +7,7 @@ const MongoDBSession = require('connect-mongodb-session')(session);
 const app = express();
 const port = 3000;
 
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);
 //creating session collection
 const store = new MongoDBSession({
   uri: process.env.MONGO_URL,
@@ -59,9 +61,6 @@ app.post('/register', async (req, res) => {
 
     // Insert the new user into the database
     await userModel.create(data);
-
-    // Redirect the user back to the homepage
-    //res.redirect('/login');
   } catch (error) {
     console.error('Error registering user:', error);
     res.status(500).send('An error occurred while registering the user');
@@ -108,6 +107,31 @@ app.post('/logout', (req, res) => {
     res.status(200);
     res.redirect('/'); // redirect to home page
   });
+});
+
+app.post('/generate', (req, res) => {
+  const { role, userMessage } = req.body;
+  console.log(userMessage);
+  async function run() {
+    try {
+      const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+      const chat = model.startChat({
+        history: [],
+        generationConfig: {
+          maxOutputTokens: 500,
+        },
+      });
+      const message = userMessage;
+      const result = await chat.sendMessage(message);
+      const response = await result.response;
+      const text = response.text();
+      return res.status(200).json({ responseText: text });
+    } catch (err) {
+      console.error('Error in generating response:', err);
+      return res.status(500).json({ error: 'Error generating response' });
+    }
+  }
+  run();
 });
 
 app.get('/check-login', (req, res) => {

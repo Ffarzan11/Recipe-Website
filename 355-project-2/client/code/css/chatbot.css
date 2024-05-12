@@ -1,4 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-:root{
-    --blue:rgba(212, 229, 244, 1)
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+:root {
+  --blue: rgb(106, 168, 222);
+  --lightblue: rgb(192, 218, 238);
+}
+
+* {
+  margin: 0;
+  overflow-y: scroll !important;
+}
+
+body {
+  background-color: aliceblue;
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+i {
+  color: var(--blue);
+}
+
+ul {
+  list-style-type: none;
+}
+.nav {
+  background-color: var(--blue);
+  padding-left: 5px;
+}
+.nav1 a {
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.nav1 a:hover {
+  text-decoration: underline;
+}
+
+header {
+  text-align: center;
+  background-color: var(--blue);
+  margin-top: 0 !important;
+  padding: 1em;
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+.chatbot .chatbox {
+  height: 70vh;
+  padding: 30px 20px 70px;
+}
+
+.chatbox .chat {
+  display: flex;
+}
+
+.chatbox .chat p {
+  padding: 12px 16px;
+  max-width: 75%;
+  background-color: var(--lightblue);
+  border-radius: 10px 10px 0 10px;
+  font-size: 16px;
+  white-space: pre-wrap;
+}
+.chatbox .incoming span {
+  height: 32px;
+  width: 32px;
+  text-align: center;
+  align-self: flex-end;
+  line-height: 32px;
+  margin: 0 10px 7px 0;
+}
+.chatbox .incoming p {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px 10px 0 10px;
+}
+.chatbox .outgoing {
+  justify-content: flex-end !important;
+  margin: 20px 0;
+}
+
+.chatbot .chat-input {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  border-top: 1px solid;
+  background-color: white;
+  padding: 5px 20px;
+}
+
+.chat-input textarea {
+  height: 55px;
+  width: 90%;
+  border: none;
+  outline: none;
+  font-size: 0.95rem !important;
+  resize: none;
+  padding: 16px 15px 16px 0;
+}
+
+.chat-input span {
+  font-size: 1.35rem;
+  cursor: pointer;
+  align-self: flex-end;
+  height: 55px;
+  line-height: 10px;
+  visibility: hidden;
+}
+
+.chat-input textarea:valid ~ span {
+  visibility: visible;
 }
