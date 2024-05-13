@@ -1,4 +1,3 @@
-<!--Michael-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,42 +25,119 @@
       referrerpolicy="no-referrer"
     />
     <title>Homepage</title>
+    <style>
+      #chatbot-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 1000;
+      }
+    </style>
   </head>
-  <!--Routing instructions: 
-        Home -> a href="/"
-        Favorite -> a href = "/favorite"      
-        Recipe -> a href = "/recipe"
-        chatbot -> a href = "/chatbot"
-    -->
   <body>
     <div class="container-flex">
-      <!--Heading-->
       <div class="container-flex header">
         <div class="img">
           <img src="img/logo/salad.png" alt="logo" />
         </div>
         <div class="search-container">
-          <div class="search">
-            <input
-              type="text"
-              class="input"
-              id="search-input"
-              placeholder="Search for a recipe"
-            />
-            <button class="search-btn" id="search-btn">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
+          <input
+            type="text"
+            class="input"
+            id="search-input"
+            placeholder="Search for a recipe"
+          />
+          <button class="search-btn" id="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
         </div>
         <div class="nav">
-          <div class="nav1"><a href="">Home</a></div>
+          <div class="nav1"><a href="/">Home</a></div>
           <div class="nav2"><a href="/favorite">Favorites</a></div>
           <div class="nav3"><a href="/login" id="login">Login/Sign-up</a></div>
         </div>
       </div>
-      <!--End of heading-->
-      <!--Rest of the code goes here-->
+      <div class="slide-container">
+        <div class="left-slide">
+          <div style="background-color: #da9767">
+            <h1 class="left-slide-title">Chicken</h1>
+            <p class="left-slide-subtitle">
+              Fresh Flavors Endless Possibilities
+            </p>
+          </div>
+          <div style="background-color: #558272">
+            <h1 class="left-slide-title">Salad</h1>
+            <p class="left-slide-subtitle">
+              Fresh Flavors Endless Possibilities
+            </p>
+          </div>
+          <div style="background-color: #b95b5b">
+            <h1 class="left-slide-title">Pancake</h1>
+            <p class="left-slide-subtitle">
+              Golden deliciousness in every bite
+            </p>
+          </div>
+          <div style="background-color: #333232">
+            <h1 class="left-slide-title">Burger</h1>
+            <p class="left-slide-subtitle">A burger worth bragging about</p>
+          </div>
+        </div>
+        <div class="right-slide">
+          <div
+            style="
+              background-image: url('https://raw.githubusercontent.com/Ffarzan11/CSCI355-project-2/main/355-project-2/client/assets/food/burger.jpeg');
+            "
+          ></div>
+          <div
+            style="
+              background-image: url('https://github.com/Ffarzan11/CSCI355-project-2/blob/main/355-project-2/client/assets/food/pancake.jpeg?raw=true');
+            "
+          ></div>
+          <div
+            style="
+              background-image: url('https://github.com/Ffarzan11/CSCI355-project-2/blob/main/355-project-2/client/assets/food/salad.jpeg?raw=true');
+            "
+          ></div>
+          <div
+            style="
+              background-image: url('https://github.com/Ffarzan11/CSCI355-project-2/blob/main/355-project-2/client/assets/food/curry.jpeg?raw=true');
+            "
+          ></div>
+        </div>
+        <div class="action-buttons">
+          <button class="down-button">
+            <i class="fas fa-arrow-down"></i>
+          </button>
+          <button class="up-button">
+            <i class="fas fa-arrow-up"></i>
+          </button>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="categoryButton"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Categories
+        </button>
+        <ul
+          class="dropdown-menu"
+          aria-labelledby="categoryButton"
+          id="categoryMenu"
+        ></ul>
+      </div>
+      <div id="recipe-display"></div>
     </div>
+    <img
+      id="chatbot-btn"
+      src="img/emoji/chatbot.png"
+      alt="Chatbot"
+      onclick="window.location.href='/chatbot';"
+    />
     <script src="../JS/index.js"></script>
   </body>
 </html>
