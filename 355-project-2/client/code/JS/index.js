@@ -7,7 +7,7 @@ const categoryButton = document.getElementById("categoryButton");
 let lastCategory = null;
 
 function toggleDropdown() {
-  const menu = document.querySelector(".dropdown-menu");
+  const menu = document.getElementById("categoryMenu");
   menu.classList.toggle("show");
 }
 
@@ -40,7 +40,7 @@ window.fetchCategoryRecipes = async (category) => {
       recipeDisplay.innerHTML = "<p>No recipes found in this category.</p>";
     }
   }
-  toggleDropdown();
+  // toggleDropdown();
 };
 
 async function displayRandomMeals() {
@@ -116,12 +116,12 @@ const slidesLength = slideRight.querySelectorAll("div").length;
 
 let activeSlideIndex = 0;
 
-slideLeft.style.top = `-${(slidesLength - 1) * 30}vh`;
+slideLeft.style.top = `-${(slidesLength - 1) * 50}vh`;
 
 upButton.addEventListener("click", () => changeSlide("up"));
 downButton.addEventListener("click", () => changeSlide("down"));
 
-const changeSlide = (direction) => {
+function changeSlide(direction) {
   const sliderHeight = slideContainer.clientHeight;
   if (direction === "up") {
     activeSlideIndex++;
@@ -135,10 +135,6 @@ const changeSlide = (direction) => {
     }
   }
 
-  slideRight.style.transform = `translateY(-${
-    activeSlideIndex * sliderHeight
-  }px)`;
-  slideLeft.style.transform = `translateY(${
-    activeSlideIndex * sliderHeight
-  }px)`;
-};
+  slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
+  slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`;
+}
