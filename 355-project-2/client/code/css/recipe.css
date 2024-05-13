@@ -23,6 +23,8 @@
 .container-flex img {
   width: 50px !important;
   height: 50px !important;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 /* header */
@@ -72,14 +74,14 @@ body {
   justify-content: center;
   height: 100vh;
   overflow: hidden;
-  margin: 0px 100px 0px 100px;
+  margin: 10px 100px 10px 100px;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 .content {
   display: flex;
   justify-content: space-between !important;
-  margin-top: 10px;
 }
 .recipe-heading {
   display: flex;
@@ -136,10 +138,10 @@ h2 {
 }
 
 .instructions-desc {
-    margin-left: 50px;
+  margin-left: 50px;
 }
 .instructions-header {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 #recipe-img {

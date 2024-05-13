@@ -45,7 +45,7 @@ window.fetchCategoryRecipes = async (category) => {
 
 async function displayRandomMeals() {
   const randomMeals = [];
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 20; i++) {
     const response = await fetch(
       "https://www.themealdb.com/api/json/v1/1/random.php"
     );
