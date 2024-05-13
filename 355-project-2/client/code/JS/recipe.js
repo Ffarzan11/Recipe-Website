@@ -13,9 +13,32 @@ let selectedRating = "Yes";
 const message = "Recipe saved to favorites!";
 const msgType = "success";
 
-async function fetchRecipeDetails() {
+//checks if the user is logged in
+document.addEventListener("DOMContentLoaded", async function () {
+  const response = await fetch("/check-login");
+  const data = await response.json();
+  console.log(data.loggedIn);
+  //updates navigation is the user is logged in
+  if (data.loggedIn) {
+    login.innerText = "Logout";
+    login.href = "/logout";
+  } else {
+    console.log("Logged out");
+    login.innerText = "Login/Sign-up";
+    login.href = "/login";
+  }
+
+  const queryParams = new URLSearchParams(window.location.search);
+  const mealId = queryParams.get("id");
+  if (mealId) {
+    fetchRecipeDetails(mealId);
+    console.log(mealId)
+  }
+});
+
+async function fetchRecipeDetails(mealId) {
   const response = await fetch(
-    "https://www.themealdb.com/api/json/v1/1/search.php?s=Cabbage Soup"
+    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
   );
   const jsonResponse = await response.json();
   const recipe = jsonResponse.meals[0];
@@ -23,7 +46,7 @@ async function fetchRecipeDetails() {
 }
 
 function displayRecipe(recipe) {
-  recipeName.textContent = "Cabbage Soup";
+  recipeName.textContent = recipe["strMeal"];
   //appending recipe image
   if (recipe.strMealThumb != null) {
     recipeImg.src = recipe.strMealThumb;
@@ -43,22 +66,6 @@ function displayRecipe(recipe) {
   const instructions = recipe["strInstructions"];
   instructionDesc.textContent = instructions;
 }
-
-//checks if the user is logged in
-document.addEventListener("DOMContentLoaded", async function () {
-  const response = await fetch("/check-login");
-  const data = await response.json();
-  console.log(data.loggedIn);
-  //updates navigation is the user is logged in
-  if (data.loggedIn) {
-    login.innerText = "Logout";
-    login.href = "/logout";
-  } else {
-    console.log("Logged out");
-    login.innerText = "Login/Sign-up";
-    login.href = "/login";
-  }
-});
 
 favoriteBtn.addEventListener("click", async () => {
   const response = await fetch("/check-login");
@@ -134,5 +141,3 @@ function removeActive() {
     ratings[i].classList.remove("active");
   }
 }
-
-fetchRecipeDetails();

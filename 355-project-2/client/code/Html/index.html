@@ -58,79 +58,75 @@
           <div class="nav3"><a href="/login" id="login">Login/Sign-up</a></div>
         </div>
       </div>
-      <div class="slide-container">
-        <div class="left-slide">
-          <div style="background-color: #da9767">
-            <h1 class="left-slide-title">Chicken</h1>
-            <p class="left-slide-subtitle">
-              Fresh Flavors Endless Possibilities
-            </p>
+      <div class="container-flex header-bottom">
+        <div class="slide-container">
+          <div class="left-slide">
+            <div style="background-color: #da9767" class="slide-div">
+              <h1 class="left-slide-title">Chicken</h1>
+              <p class="left-slide-subtitle">
+                Fresh Flavors Endless Possibilities
+              </p>
+            </div>
+            <div style="background-color: #558272" class="slide-div">
+              <h1 class="left-slide-title">Salad</h1>
+              <p class="left-slide-subtitle">
+                Fresh Flavors Endless Possibilities
+              </p>
+            </div>
+            <div style="background-color: #b95b5b" class="slide-div">
+              <h1 class="left-slide-title">Pancake</h1>
+              <p class="left-slide-subtitle">
+                Golden deliciousness in every bite
+              </p>
+            </div>
+            <div style="background-color: #333232" class="slide-div">
+              <h1 class="left-slide-title">Burger</h1>
+              <p class="left-slide-subtitle">A burger worth bragging about</p>
+            </div>
           </div>
-          <div style="background-color: #558272">
-            <h1 class="left-slide-title">Salad</h1>
-            <p class="left-slide-subtitle">
-              Fresh Flavors Endless Possibilities
-            </p>
+          <div class="right-slide">
+            <div class="slide-img">
+              <img src="img/food/burger.jpeg" alt="" />
+            </div>
+            <div class="slide-img">
+              <img src="img/food/pancake.jpeg" alt="" />
+            </div>
+            <div class="slide-img">
+              <img src="img/food/salad.jpeg" alt="" />
+            </div>
+            <div class="slide-img">
+              <img src="img/food/curry.jpeg" alt="" />
+            </div>
           </div>
-          <div style="background-color: #b95b5b">
-            <h1 class="left-slide-title">Pancake</h1>
-            <p class="left-slide-subtitle">
-              Golden deliciousness in every bite
-            </p>
-          </div>
-          <div style="background-color: #333232">
-            <h1 class="left-slide-title">Burger</h1>
-            <p class="left-slide-subtitle">A burger worth bragging about</p>
+          <div class="action-buttons">
+            <button class="down-button">
+              <i class="fas fa-arrow-down"></i>
+            </button>
+            <button class="up-button">
+              <i class="fas fa-arrow-up"></i>
+            </button>
           </div>
         </div>
-        <div class="right-slide">
-          <div
-            style="
-              background-image: url('https://raw.githubusercontent.com/Ffarzan11/CSCI355-project-2/main/355-project-2/client/assets/food/burger.jpeg');
-            "
-          ></div>
-          <div
-            style="
-              background-image: url('https://github.com/Ffarzan11/CSCI355-project-2/blob/main/355-project-2/client/assets/food/pancake.jpeg?raw=true');
-            "
-          ></div>
-          <div
-            style="
-              background-image: url('https://github.com/Ffarzan11/CSCI355-project-2/blob/main/355-project-2/client/assets/food/salad.jpeg?raw=true');
-            "
-          ></div>
-          <div
-            style="
-              background-image: url('https://github.com/Ffarzan11/CSCI355-project-2/blob/main/355-project-2/client/assets/food/curry.jpeg?raw=true');
-            "
-          ></div>
-        </div>
-        <div class="action-buttons">
-          <button class="down-button">
-            <i class="fas fa-arrow-down"></i>
-          </button>
-          <button class="up-button">
-            <i class="fas fa-arrow-up"></i>
-          </button>
+        <div class="holder">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="categoryButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Categories
+            </button>
+            <ul
+              class="dropdown-menu"
+              aria-labelledby="categoryButton"
+              id="categoryMenu"
+            ></ul>
+          </div>
+          <div id="recipe-display"></div>
         </div>
       </div>
-      <div class="dropdown">
-        <button
-          class="btn btn-secondary dropdown-toggle"
-          type="button"
-          id="categoryButton"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Categories
-        </button>
-        <ul
-          class="dropdown-menu"
-          aria-labelledby="categoryButton"
-          id="categoryMenu"
-        ></ul>
-      </div>
-      <div id="recipe-display"></div>
     </div>
     <img
       id="chatbot-btn"
