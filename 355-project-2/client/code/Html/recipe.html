@@ -5,6 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/recipe.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
       integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
@@ -20,7 +27,7 @@
     />
     <title>Recipe</title>
   </head>
-    <!--Routing instructions: 
+  <!--Routing instructions: 
         Home -> a href="/"
         Favorite -> a href = "/favorite"      
         Recipe -> a href = "/recipe"
@@ -28,6 +35,7 @@
     -->
   <body>
     <div class="container-flex">
+        <div id="toasts"></div>
       <!--Heading-->
       <div class="container-flex header">
         <div class="img">
@@ -39,10 +47,51 @@
           <div class="nav3"><a href="/login" id="login">Login/Sign-up</a></div>
         </div>
       </div>
-      <!--End of heading-->
-      <!--Rest of the code goes here-->
-    </div>
+      <div class="content">
+        <div class="recipe">
+          <div class="recipe-heading">
+            <h2 id="recipe-name">Chicken Curry</h2>
+            <button class="heart-btn">
+              <img src="img/emoji/heart.png" alt="" />
+            </button>
+          </div>
+          <img src="" alt="curry" id="recipe-img" />
 
+          <div id="panel" class="panel-container">
+            <strong>Did you enjoy the recipe?</strong>
+            <div class="ratings-container">
+              <div class="rating">
+                <img src="img/emoji/happy-face.png" alt="" />
+                <small>Yes</small>
+              </div>
+
+              <div class="rating">
+                <img src="img/emoji/sad.png" alt="" />
+
+                <small>Neutral</small>
+              </div>
+
+              <div class="rating">
+                <img src="img/emoji/happy-face.png" alt="" />
+
+                <small>No</small>
+              </div>
+            </div>
+            <button class="btn" id="send">Send Review</button>
+          </div>
+        </div>
+
+        <div class="instructions">
+          <div class="ingredients">
+            <h2>Ingredients</h2>
+            <ol class="ingredients-list"></ol>
+          </div>
+          <h2 class="instructions-header">Instructions</h2>
+          <p class="instructions-desc"></p>
+        </div>
+      </div>
+    
+    </div>
     <script src="../JS/recipe.js"></script>
   </body>
 </html>

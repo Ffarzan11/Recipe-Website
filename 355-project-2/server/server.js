@@ -105,8 +105,48 @@ app.post('/logout', (req, res) => {
       return res.status(500).send('Logout error!');
     }
     res.status(200);
-    res.redirect('/'); // redirect to home page
+    // res.redirect('/'); // redirect to home page
   });
+});
+app.get('/check-login', (req, res) => {
+  if (req.session && req.session.user) {
+    // User is logged in, send response with loggedIn: true
+    res.setHeader('Cache-Control', 'no-store');
+    res.json({ loggedIn: true });
+  } else {
+    // User is not logged in, send response with loggedIn: false
+    res.setHeader('Cache-Control', 'no-store');
+    res.json({ loggedIn: false });
+  }
+});
+
+app.post('/favorites', async (req, res) => {
+  const { recipeName, recipeImgSrc } = req.body;
+  const userId = req.session.user.id;
+  try {
+    const user = await userModel.findById(userId);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
+    if (!user.favorite) {
+      user.favorite = [];
+    }
+    const favoriteIndex = user.favorite.findIndex((fav) => fav.recipe === recipeName);
+
+    if (favoriteIndex !== -1) {
+      // If the recipe already exists in favorites, update its image
+      user.favorite[favoriteIndex].image = recipeImgSrc;
+    } else {
+      // If the recipe doesn't exist in favorites, add it as a new object
+      user.favorite.push({ recipe: recipeName, image: recipeImgSrc });
+    }
+    await user.save();
+    res.sendStatus(200);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send('database error!');
+  }
 });
 
 app.post('/generate', (req, res) => {
@@ -132,18 +172,6 @@ app.post('/generate', (req, res) => {
     }
   }
   run();
-});
-
-app.get('/check-login', (req, res) => {
-  if (req.session && req.session.user) {
-    // User is logged in, send response with loggedIn: true
-    res.setHeader('Cache-Control', 'no-store');
-    res.json({ loggedIn: true });
-  } else {
-    // User is not logged in, send response with loggedIn: false
-    res.setHeader('Cache-Control', 'no-store');
-    res.json({ loggedIn: false });
-  }
 });
 
 app.listen(port, () => {

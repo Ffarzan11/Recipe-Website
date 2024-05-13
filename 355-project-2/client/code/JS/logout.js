@@ -11,6 +11,7 @@ async function handleLogout() {
     });
     if (response.ok) {
       console.log("logout success");
+      window.location.href = "/";
     } else {
       console.error("Logout failed!");
     }

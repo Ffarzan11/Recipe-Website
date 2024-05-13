@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 /*
 
     COLOR:
@@ -16,44 +16,231 @@
 */
 
 /* logo */
-:root{
-    --night:rgba(52, 50, 50, 1);
-    --gray: rgba(217, 217, 217, 1)
+:root {
+  --night: rgba(52, 50, 50, 1);
+  --gray: rgba(217, 217, 217, 1);
 }
-img{
-    width: 50px !important;
-    height: 50px !important;
+.container-flex img {
+  width: 50px !important;
+  height: 50px !important;
 }
 
 /* header */
-.header{
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    display: flex;
-    background-color: white;
-    justify-content: space-between !important;
-    z-index: 1;
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  background-color: white;
+  justify-content: space-between !important;
+  z-index: 1;
 }
 /* navigation route */
-.nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around !important;
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around !important;
 }
 
-.nav1, .nav2, .nav3 {
-    padding-right: 20px;
-}
-a{
-    text-decoration: none !important;
-}
-a:visited{
-    color: black !important;
-    text-decoration:none !important ;
+.nav1,
+.nav2,
+.nav3 {
+  padding-right: 20px;
 }
 
-a:hover{
-    text-decoration: underline !important;
+a {
+  text-decoration: none !important;
+}
+a:visited {
+  color: black !important;
+  text-decoration: none !important ;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0px 100px 0px 100px;
+  overflow-y: scroll;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between !important;
+  margin-top: 10px;
+}
+.recipe-heading {
+  display: flex;
+}
+.heart-btn {
+  background-color: transparent;
+  height: 95px;
+  border: none;
+}
+h2 {
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Positioning Chicken Curry */
+.content h2 {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.recipe h2 {
+  font-size: 36px;
+}
+
+.recipe .curry-image img {
+  width: 360px;
+  height: 360px;
+  margin-bottom: 20px;
+}
+
+.instructions {
+  margin-left: 2rem;
+}
+
+.instructions p {
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.ingredients h2 {
+  margin-bottom: 10px;
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+}
+
+.ingredients {
+  padding: 20px;
+  margin-top: 20px;
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.instructions-desc {
+    margin-left: 50px;
+}
+.instructions-header {
+    margin-left: 30px;
+}
+
+#recipe-img {
+  width: 300px !important;
+  height: 300px !important;
+}
+
+.panel-container {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 4px;
+  font-size: 90%;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  max-width: 300px;
+  margin-top: 8px;
+}
+
+.panel-container strong {
+  line-height: 20px;
+}
+
+.ratings-container {
+  display: flex;
+  margin: 20px 0;
+}
+
+.rating {
+  flex: 1;
+  cursor: poiner;
+  padding: 20px;
+  margin: 10px 5px;
+}
+
+.rating:hover,
+.rating.active {
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.rating img {
+  width: 40px;
+}
+
+.rating small {
+  color: #555;
+  display: inline-block;
+  margin: 10px 0 0;
+}
+
+.rating:hover small,
+.rating.active small {
+  color: #111;
+}
+
+.btn {
+  background-color: #302d2b;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 12px 30px;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.fa-heart {
+  color: red;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+#toasts {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.toast {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 5px 5px 5px gray;
+}
+.toast.success {
+  color: green;
 }
