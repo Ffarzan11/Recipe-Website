@@ -10,7 +10,6 @@ async function handleLogout() {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      console.log("logout success");
       window.location.href = "/";
     } else {
       console.error("Logout failed!");

@@ -61,6 +61,8 @@ app.post('/register', async (req, res) => {
 
     // Insert the new user into the database
     await userModel.create(data);
+    res.status(200);
+    res.redirect('/login');
   } catch (error) {
     console.error('Error registering user:', error);
     res.status(500).send('An error occurred while registering the user');
@@ -104,7 +106,7 @@ app.post('/logout', (req, res) => {
       console.error(err);
       return res.status(500).send('Logout error!');
     }
-    res.status(200);
+    res.status(200).send('Logout successful');
     // res.redirect('/'); // redirect to home page
   });
 });
@@ -174,7 +176,7 @@ app.post('/favorites', async (req, res) => {
 });
 
 app.post('/deleteFavorite', async (req, res) => {
-  const { recipeId } = req.body
+  const { recipeId } = req.body;
   const userId = req.session.user.id;
   try {
     const user = await userModel.findById(userId);

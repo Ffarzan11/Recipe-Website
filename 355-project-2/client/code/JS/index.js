@@ -68,9 +68,6 @@ function displayRecipes(meals) {
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
-  await fetchCategories();
-  await displayRandomMeals();
-
   const loginResponse = await fetch("/check-login");
   const loginData = await loginResponse.json();
 
@@ -81,7 +78,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     login.innerText = "Login/Sign-up";
     login.href = "/login";
   }
-
+  await fetchCategories();
+  await displayRandomMeals();
   searchInput.addEventListener("input", async function () {
     const query = searchInput.value.trim();
     let url;

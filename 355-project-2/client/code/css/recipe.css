@@ -57,8 +57,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  margin: 100px 100px 10px 100px;
+  margin: 50px 100px 10px 100px;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }

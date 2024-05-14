@@ -14,7 +14,7 @@ async function handleLogin(email, password) {
     });
 
     if (response.ok) {
-      window.location.href = "/"
+      window.location.href = "/";
       console.log("logged in");
     } else {
       console.error("Login request failed:", response.statusText);

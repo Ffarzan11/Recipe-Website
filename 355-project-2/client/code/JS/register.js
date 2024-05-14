@@ -10,7 +10,7 @@ const resultEl = document.querySelector(".result");
 const resultContainer = document.querySelector(".result-container");
 const lengthEl = document.getElementById("length");
 const popup = document.getElementById("popup");
-const clipboard = document.getElementById('clipboard')
+const clipboard = document.getElementById("clipboard");
 
 // function to validate name
 function validateName(name) {
@@ -73,9 +73,9 @@ const randomFunc = {
 };
 
 generatePasswordBtn.addEventListener("click", (event) => {
-    event.preventDefault();
+  event.preventDefault();
   let len = lengthEl.value;
-resultContainer.style.padding = "5px"
+  resultContainer.style.padding = "5px";
   resultEl.innerText = generatePassword(len);
 });
 
@@ -87,22 +87,22 @@ function generatePassword(len) {
       generatedPassword += randomFunc[type]();
     });
   }
-  const finalPass = generatedPassword.slice(0,len);
-  return finalPass
+  const finalPass = generatedPassword.slice(0, len);
+  return finalPass;
 }
-clipboard.addEventListener("click", (event)=>{
-    event.preventDefault()
-    const textArea = document.createElement('textarea');
-    const password = resultEl.innerText;
-    if(!password){
-        return
-    }
-    textArea.value = password;
-    document.body.appendChild(textArea);
-    textArea.select()
-    document.execCommand('copy')
-    textArea.remove()
-})
+clipboard.addEventListener("click", (event) => {
+  event.preventDefault();
+  const textArea = document.createElement("textarea");
+  const password = resultEl.innerText;
+  if (!password) {
+    return;
+  }
+  textArea.value = password;
+  document.body.appendChild(textArea);
+  textArea.select();
+  document.execCommand("copy");
+  textArea.remove();
+});
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
@@ -119,4 +119,3 @@ function getRandomSymbol() {
   const symbols = "!@#$%^&*(){}[]=<>?,.";
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
-
