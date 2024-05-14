@@ -39,6 +39,7 @@ const chatbot = require('./router/chatbot');
 const login = require('./router/login');
 const register = require('./router/register');
 const logout = require('./router/logout');
+const about = require('./router/AboutUs');
 
 app.use('/', home);
 app.use('/recipe', recipe);
@@ -47,6 +48,7 @@ app.use('/chatbot', chatbot);
 app.use('/login', login);
 app.use('/register', register);
 app.use('/logout', logout);
+app.use('/about', about);
 
 //registering user and storing to db
 app.post('/register', async (req, res) => {
