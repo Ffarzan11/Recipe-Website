@@ -120,8 +120,31 @@ app.get('/check-login', (req, res) => {
   }
 });
 
+app.get('/favoriteMeals', async (req, res) => {
+  const userID = req.session.user.id;
+  try {
+    const user = await userModel.findById(userID);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+    if (user.favorite) {
+      res.json({
+        hasFav: true,
+        favorites: user.favorite,
+      });
+    } else {
+      res.json({
+        hasFav: false,
+        favorites: 'no favorites',
+      });
+    }
+  } catch (error) {
+    console.log('error in getting favorites ' + error);
+  }
+});
+
 app.post('/favorites', async (req, res) => {
-  const { recipeName, recipeImgSrc } = req.body;
+  const { recipeId, recipeName, recipeImgSrc } = req.body;
   const userId = req.session.user.id;
   try {
     const user = await userModel.findById(userId);
@@ -135,11 +158,58 @@ app.post('/favorites', async (req, res) => {
     const favoriteIndex = user.favorite.findIndex((fav) => fav.recipe === recipeName);
 
     if (favoriteIndex !== -1) {
-      // If the recipe already exists in favorites, update its image
+      // If the recipe already exists in favorites, update its image, and id
       user.favorite[favoriteIndex].image = recipeImgSrc;
+      user.favorite[favoriteIndex].id = recipeId;
     } else {
       // If the recipe doesn't exist in favorites, add it as a new object
-      user.favorite.push({ recipe: recipeName, image: recipeImgSrc });
+      user.favorite.push({ id: recipeId, recipe: recipeName, image: recipeImgSrc });
+    }
+    await user.save();
+    res.sendStatus(200);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send('database error!');
+  }
+});
+
+app.post('/deleteFavorite', async (req, res) => {
+  const { recipeId } = req.body
+  const userId = req.session.user.id;
+  try {
+    const user = await userModel.findById(userId);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+    const favoriteIndex = user.favorite.findIndex((fav) => fav.id === recipeId);
+    if (favoriteIndex === -1) {
+      return res.status(404).send('Favorite not found');
+    }
+    user.favorite.splice(favoriteIndex, 1);
+    await user.save();
+    return res.status(200).send('Favorite deleted successfully');
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send('database error!');
+  }
+});
+
+app.post('/feedback', async (req, res) => {
+  const { recipeName, feedback } = req.body;
+  const userId = req.session.user.id;
+  try {
+    const user = await userModel.findById(userId);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+    if (!user.feedback) {
+      user.feedback = [];
+    }
+    const feedbackIndex = user.feedback.findIndex((feedback) => feedback.recipe === recipeName);
+    if (feedbackIndex !== -1) {
+      user.feedback[feedbackIndex].recipe_review = feedback;
+    } else {
+      user.feedback.push({ recipe: recipeName, recipe_review: feedback });
     }
     await user.save();
     res.sendStatus(200);

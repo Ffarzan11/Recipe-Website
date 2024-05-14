@@ -12,7 +12,7 @@ const toasts = document.getElementById("toasts");
 let selectedRating = "Yes";
 const message = "Recipe saved to favorites!";
 const msgType = "success";
-
+let mealId;
 //checks if the user is logged in
 document.addEventListener("DOMContentLoaded", async function () {
   const response = await fetch("/check-login");
@@ -29,10 +29,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   const queryParams = new URLSearchParams(window.location.search);
-  const mealId = queryParams.get("id");
+  mealId = queryParams.get("id");
   if (mealId) {
-    fetchRecipeDetails(mealId);
-    console.log(mealId)
+    await fetchRecipeDetails(mealId);
+    console.log(mealId);
   }
 });
 
@@ -78,6 +78,7 @@ favoriteBtn.addEventListener("click", async () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          recipeId: mealId,
           recipeName: recipeName.textContent,
           recipeImgSrc: recipeImg.src,
         }),
@@ -126,14 +127,37 @@ ratingsContainer.addEventListener("click", (e) => {
   }
 });
 
-sendBtn.addEventListener("click", (e) => {
-  panel.innerHTML = `
+//actions to submit feeback
+sendBtn.addEventListener("click", async (e) => {
+  const response = await fetch("/check-login");
+  const data = await response.json();
+  if (data.loggedIn) {
+    try {
+      const response = await fetch("/feedback", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          recipeName: recipeName.textContent,
+          feedback: selectedRating,
+        }),
+      });
+      if (response.ok) {
+        panel.innerHTML = `
         <img src="img/emoji/heart.png" alt="" />
         <strong>Thank You!</strong>
         <br>
         <strong>Feedback: ${selectedRating}</strong>
         <p>We'll use your feedback to improve our customer support</p>
     `;
+      }
+    } catch (err) {
+      console.log("Error submitting feedback: " + err);
+    }
+  } else {
+    alert("Please log in to submit a feedback");
+  }
 });
 
 function removeActive() {

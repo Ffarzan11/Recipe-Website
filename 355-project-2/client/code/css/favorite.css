@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 /*
 
     FONTS
@@ -12,38 +12,108 @@
 */
 
 /* logo */
-img{
-    width: 50px !important;
-    height: 50px !important;
+img {
+  width: 50px !important;
+  height: 50px !important;
 }
 
 /* header */
-.header{
-    position: fixed;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between !important;
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  background-color: white;
+  justify-content: space-between !important;
+  z-index: 1;
 }
 
 /* navigation route */
-.nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around !important;
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around !important;
 }
 
-.nav1, .nav2, .nav3 {
-    padding-right: 20px;
+.nav1,
+.nav2,
+.nav3 {
+  padding-right: 20px;
 }
-a{
-    text-decoration: none !important;
+a {
+  text-decoration: none !important;
 }
-a:visited{
-    color: black !important;
-    text-decoration:none !important ;
+a:visited {
+  color: black !important;
+  text-decoration: none !important ;
 }
 
-a:hover{
-    text-decoration: underline !important;
+a:hover {
+  text-decoration: underline !important;
+}
+
+body {
+  background-color: white;
+  height: 100vh;
+  margin: 100px 100px 10px 100px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.recipe-container {
+  display: flex;
+}
+.recipe-image img {
+  width: 150px !important;
+  height: 150px !important;
+  margin-right: 10px;
+}
+h2 {
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.recipe-name {
+  font-size: 18px;
+  align-self: center;
+  font-family: "Roboto" !important;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-right: 10px;
+}
+
+.delete-recipe {
+  align-self: center;
+}
+
+.deleteBtn {
+  background-color: transparent !important;
+  border: none;
+}
+
+.fa-trash {
+  color: red;
+}
+#toasts {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.toast {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 5px 5px 5px gray;
+}
+.toast.success {
+  color: green;
+}
+.toast.error {
+  color: red;
 }

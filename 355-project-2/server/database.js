@@ -36,6 +36,7 @@ const userSchema = new schema({
   },
   favorite: [
     {
+      id:String,
       recipe: String,
       image: String,
     },
