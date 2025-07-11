@@ -1,4 +1,6 @@
 require('dotenv').config();
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const express = require('express');
 const session = require('express-session');
@@ -53,12 +55,13 @@ app.use('/about', about);
 //registering user and storing to db
 app.post('/register', async (req, res) => {
   try {
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
     const data = {
       firstName: req.body.firstname,
       lastName: req.body.lastname,
       userName: req.body.username,
       email: req.body.email,
-      password: req.body.password,
+      password: hashedPassword,
     };
 
     // Insert the new user into the database
@@ -82,8 +85,9 @@ app.post('/login', async (req, res) => {
       return res.status(404).send('User not found');
     }
 
+    const passwordMatch = await bcrypt.compare(password, user.password);
     // Check if the provided password matches the one stored in the database
-    if (password !== user.password) {
+    if (!passwordMatch) {
       return res.status(401).send('Incorrect password');
     }
 
