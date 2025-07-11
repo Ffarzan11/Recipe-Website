@@ -34,6 +34,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send('An error occurred!');
 });
 
+// routes
 const home = require('./router/home');
 const recipe = require('./router/recipe');
 const favorite = require('./router/favorite');
@@ -181,6 +182,7 @@ app.post('/favorites', async (req, res) => {
   }
 });
 
+// delete favorite recipe for specific user
 app.post('/deleteFavorite', async (req, res) => {
   const { recipeId } = req.body;
   const userId = req.session.user.id;
@@ -202,6 +204,7 @@ app.post('/deleteFavorite', async (req, res) => {
   }
 });
 
+// storing feedback for specific user
 app.post('/feedback', async (req, res) => {
   const { recipeName, feedback } = req.body;
   const userId = req.session.user.id;
